@@ -1,0 +1,30 @@
+package sbl.com.javaandroidtest.observers;
+
+import java.util.Observable;
+
+/**
+ * Created by sandeep on 6/4/16.
+ */
+public class StockMarket extends Observable {
+
+    public static final String SHARE_NAME = "INFY";
+
+    private float sharValue = 0;
+
+    public float getShareValue() {
+
+        return sharValue;
+    }
+
+
+    public void setShareValue( float shareValue) {
+
+        this.sharValue = shareValue;
+
+        //Method of base class Observable, to set change
+        setChanged();
+
+        //Method of base class Observable, to notify all observers
+        notifyObservers();
+    }
+}
